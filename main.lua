@@ -1,5 +1,5 @@
-colors = require 'lib.loveconsole.colors'
-console = require 'lib.loveconsole.console'
+console = require 'loveconsole.console'
+colors = require 'loveconsole.colors'
 class = require 'middleclass'
 binser = require 'binser'
 lovetoys = require 'lovetoys.lovetoys'
