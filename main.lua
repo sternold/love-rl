@@ -61,10 +61,11 @@ function love.load()
 	love.keyboard.setKeyRepeat(true)
 	game:initialize()
 
-	keys:initialize(game.entities.player)
+	keys:initialize(game.player)
 end
 
 function love.draw()
+	game.map:draw()
 	game.engine:draw()
 end
 

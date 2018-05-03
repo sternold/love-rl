@@ -3,17 +3,17 @@ local Dying = require 'src.systems.dying'
 
 local Player = require 'src.entities.player'
 
-local game = {
-    entities = {
-        player = nil
-    }
-}
-function game:initialize()
+local generator = require 'src.dungeon.generator'
+
+local Game = class('game', Entity)
+function Game:initialize()
+    Entity.initialize(self)
     self.engine = Engine()
-    self.entities.player = Player(1, 1)
-    self.engine:addEntity(self.entities.player)
+    self.map = generator.generate(100, 100)
+    self.player = Player(self, 1, 1)
+    self.engine:addEntity(self.player)
     self.engine:addSystem(Drawing(), "draw")
     self.engine:addSystem(Dying(), "update")
 end
 
-return game
+return Game

@@ -7,8 +7,9 @@ local Playable = require 'src.components.playable'
 
 local Player = class("Player", Entity)
 
-function Player:initialize(x, y)
+function Player:initialize(parent, x, y)
     Entity.initialize(self)
+    self.parent = parent
     self:addMultiple({
         Object("Player", true),
         Location(x, y),
@@ -22,8 +23,10 @@ function Player:move(dx, dy)
     local x = self:get("location").x + dx
     local y = self:get("location").y + dy
 
-    self:get("location").x = x
-    self:get("location").y = y
+    if not self.parent.map:is_blocked(x, y) then
+        self:get("location").x = x
+        self:get("location").y = y
+    end
 end
 
 return Player
