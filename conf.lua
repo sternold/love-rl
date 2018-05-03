@@ -7,7 +7,7 @@ function love.conf(t)
 	t.version = "11.1"
 	t.console = false
  
-    t.window.title = "Love Roguelike"
+    t.window.title = "LoveRL"
     t.window.icon = nil
     t.window.width = 800
     t.window.height = 600
@@ -28,6 +28,6 @@ function love.conf(t)
         "middleclass ~> 4.1.1",
         "binser ~> 0.0",
 		"lovetoys ~> 0.3.1",
-        "loveconsole ~> 0.1"
+        "loveconsole ~> 0.1.2"
 	}
 end
