@@ -1,0 +1,1 @@
+return Component.create("fightable", {"max_hp", "hp"})

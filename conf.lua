@@ -26,7 +26,6 @@ function love.conf(t)
  
 	t.dependencies = {
         "middleclass ~> 4.1.1",
-        "binser ~> 0.0",
 		"lovetoys ~> 0.3.1",
         "loveconsole ~> 0.1.2"
 	}

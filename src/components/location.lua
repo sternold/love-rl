@@ -1,0 +1,1 @@
+return Component.create("location", {"x", "y"})

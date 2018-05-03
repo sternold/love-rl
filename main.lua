@@ -1,8 +1,22 @@
 console = require 'loveconsole.console'
+console:initialize({
+	name = "main",
+	extend = true,
+	buffer_width = 80,
+	buffer_height = 50,
+	font = "res/fonts/press-start-2p.ttf",
+	font_size = 16,
+})
 colors = require 'loveconsole.colors'
 class = require 'middleclass'
-binser = require 'binser'
 lovetoys = require 'lovetoys.lovetoys'
+lovetoys.initialize({
+	debug = true,
+	globals = true
+})
+
+local keys = require 'src.managers.keys'
+local game = require 'src.game'
 
 function love.run()
     if love.math then
@@ -44,29 +58,21 @@ function love.run()
 end
 
 function love.load()
-    lovetoys.initialize()
-    console:initialize({
-        name = "main",
-        extend = true,
-        buffer_width = 80,
-        buffer_height = 50,
-        font = "res/fonts/press-start-2p.ttf",
-        font_size = 16,
-    })
-end
+	love.keyboard.setKeyRepeat(true)
+	game:initialize()
 
-function love.update(dt)
-    
+	keys:initialize(game.entities.player)
 end
 
 function love.draw()
-    console:fill()
+	game.engine:draw()
 end
 
 function love.keypressed(key)
-    if key == "space" then
-        console:flush()
-    end
+	if keys:handle(key) then
+		game.engine:update()
+		console:flush()
+	end
 end
 
 function console:flush()
