@@ -1,1 +1,1 @@
-return Component.create("fightable", {"max_hp", "hp"})
+return Component.create("fightable", {"max_hp", "defense", "power", "hp", "xp"})

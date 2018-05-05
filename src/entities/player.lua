@@ -14,8 +14,8 @@ function Player:initialize(parent, x, y)
         Object("Player", true),
         Location(x, y),
         Drawable('@', colors.yellow),
-        Fightable(10, 10),
-        Playable()
+        Fightable(10, 1, 1, 10),
+        Playable(1, 200, 150, 10, 2)
     })
 end
 

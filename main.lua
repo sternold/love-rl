@@ -14,6 +14,7 @@ lovetoys.initialize({
 	debug = true,
 	globals = true
 })
+util = require 'lib.util'
 
 local keys = require 'src.managers.keys'
 local game = require 'src.game'
@@ -59,14 +60,21 @@ end
 
 function love.load()
 	love.keyboard.setKeyRepeat(true)
-	game:initialize()
-
+	game:initialize({
+		width = 50, 
+		height = 50,
+		x = 0,
+		y = 0
+	})
+	game:start()
 	keys:initialize(game.player)
 end
 
 function love.draw()
 	game.map:draw()
 	game.engine:draw()
+	game.map:draw_overlay()
+	game.ui:draw()
 end
 
 function love.keypressed(key)

@@ -1,1 +1,1 @@
-return Component.create("playable", {})
+return Component.create("playable", {"level", "base_xp", "rate_xp", "sense_range", "scent"})
